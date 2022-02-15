@@ -130,7 +130,7 @@ Run example
 Example 1: Kafka console producer -> Key:String and Value:String
 ----------------------------------------------------------------
 
-- Command line ``confluent local services kafka produce`` produces ``String`` keys and ``String`` values to a Kafka topic.
+- Command line ``confluent-v1 local services kafka produce`` produces ``String`` keys and ``String`` values to a Kafka topic.
 - :devx-examples:`Client application|connect-streams-pipeline/src/main/java/io/confluent/examples/connectandstreams/consoleproducer/StreamsIngest.java` reads from the Kafka topic using ``Serdes.String()`` for both key and value.
 
 .. figure:: images/example_1.jpg
@@ -153,6 +153,8 @@ Example 2: JDBC source connector with Single Message Transformations -> Key:Long
 
 Example 3: JDBC source connector with SpecificAvro -> Key:String(null) and Value:SpecificAvro
 ---------------------------------------------------------------------------------------------
+
+.. seealso:: See this example in the tutorial `Add key to data ingested through Kafka Connect <https://kafka-tutorials.confluent.io/connect-add-key-to-source/kstreams.html>`__.
 
 - :devx-examples:`Kafka Connect JDBC source connector|connect-streams-pipeline/jdbcspecificavro-connector.properties` produces Avro values, and null ``String`` keys, to a Kafka topic.
 - This example uses a single message transformation (SMT) called ``SetSchemaMetadata`` with code that has a fix for `KAFKA-5164 <https://issues.apache.org/jira/browse/KAFKA-5164>`__, allowing the connector to set the namespace in the schema. If you do not have the fix for `KAFKA-5164 <https://issues.apache.org/jira/browse/KAFKA-5164>`__, see Example 4 that uses ``GenericAvro`` instead of ``SpecificAvro``.
